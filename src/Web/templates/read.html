@@ -1,0 +1,16 @@
+{% extends '@index.html' %}
+
+{% block title %}
+Reading book
+{% endblock %}
+
+{% block page %}
+    <div class="md:px-[20%]">
+        <a href="/book/{{id}}" class="block w-full bg-gray-200 h-10 pt-0 px-3">
+            << back
+        </a>
+        <div>
+            {{text|safe}}
+        </div>
+    </div>
+{% endblock %}

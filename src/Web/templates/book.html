@@ -1,0 +1,63 @@
+{% extends '@index.html' %}
+
+{% block title %}
+{{book.get('title')}}
+{% endblock %}
+
+{% block page %}
+<div class="md:px-[20%]">
+    <a href="/" class="flex items-center block w-full bg-gray-200 h-10 pt-0 px-3">
+        Index
+    </a>
+
+    <div class="flex flex-col ml-3">
+        <h3 class="block">{{book.get('name')}}</h3>
+        <b>{{book.get('author')}}</b>
+    </div>
+
+    <div class="flex flex-col mt-5">
+        {% if 'read' in book.get('formats') %}
+            <a href="/book/{{book.get('id')}}/read" class="flex items-center block w-full bg-gray-100 h-10 pt-0 px-3">
+                Read
+            </a>
+        {% endif %}
+        {% if 'epub' in book.get('formats') %}
+            <a href="https://flibusta.is/b/{{book.get('id')}}/epub" class="flex items-center block w-full bg-gray-100 h-10 pt-0 px-3">
+                epub
+            </a>
+        {% endif %}
+        {% if 'fb2' in book.get('formats') %}
+            <a href="https://flibusta.is/b/{{book.get('id')}}/fb2" class="flex items-center block w-full bg-gray-100 h-10 pt-0 px-3">
+                fb2
+            </a>
+        {% endif %}
+        {% if 'mobi' in book.get('formats') %}
+            <a href="https://flibusta.is/b/{{book.get('id')}}/mobi" class="flex items-center block w-full bg-gray-100 h-10 pt-0 px-3">
+                mobi
+            </a>
+        {% endif %}
+        {% if 'djvu' in book.get('formats') %}
+            <a href="https://flibusta.is/b/{{book.get('id')}}/djvu" class="flex items-center block w-full bg-gray-100 h-10 pt-0 px-3">
+                djvu
+            </a>
+        {% endif %}
+        {% if 'pdf' in book.get('formats') %}
+            <a href="https://flibusta.is/b/{{book.get('id')}}/pdf" class="flex items-center block w-full bg-gray-100 h-10 pt-0 px-3">
+                pdf
+            </a>
+        {% endif %}
+    </div>
+
+    <div>
+        {% if book.get('cover_url') != None %}
+            <img src="{{book.get('cover_url')}}">
+        {% endif %}
+    </div>
+
+    <div>
+        <a href="https://flibusta.is{{book.get('url')}}" class="flex items-center block w-full bg-gray-200 h-10 pt-0 px-3">
+            Original
+        </a>
+    </div>
+</div>
+{% endblock %}

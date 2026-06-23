@@ -1,0 +1,4 @@
+aiohttp
+aiohttp-jinja2
+beautifulsoup4
+tinydb
